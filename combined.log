@@ -1,0 +1,18 @@
+{"level":"info","message":"Timesheet created successfully","timestamp":"2024-09-30T17:56:42.151Z"}
+{"activity_id":1,"date":"2024-10-02","employee_id":1,"hours":"8.00","level":"info","message":"Timesheet created successfully","timestamp":"2024-09-30T18:00:36.407Z"}
+{"activity_id":1,"date":"2024-10-03","employee_id":1,"hours":"9.00","level":"info","message":"Timesheet with ID: 1 updated successfully","timestamp":"2024-09-30T18:00:42.293Z"}
+{"level":"info","message":"Retrieved timesheets successfully","timestamp":"2024-09-30T18:00:48.505Z"}
+{"level":"info","message":"Timesheet with ID: 1 deleted successfully","timestamp":"2024-09-30T18:00:52.684Z"}
+{"level":"info","message":"Activity created successfully","name":"New Activity","timestamp":"2024-09-30T18:18:41.750Z"}
+{"level":"info","message":"Activity with ID: 1 updated successfully","name":"Updated Activity Name","timestamp":"2024-09-30T18:19:23.771Z"}
+{"level":"info","message":"Activity with ID: 1 hidden successfully","timestamp":"2024-09-30T18:19:32.271Z"}
+{"level":"info","message":"Activity with ID: 1 unhidden successfully","timestamp":"2024-09-30T18:19:40.614Z"}
+{"level":"info","message":"Activity with ID: 1 updated successfully","name":"Updated Activity Name","timestamp":"2024-09-30T18:20:23.660Z"}
+{"level":"info","message":"Activity with ID: 1 hidden successfully","timestamp":"2024-09-30T18:20:27.997Z"}
+{"level":"info","message":"Activity with ID: 1 unhidden successfully","timestamp":"2024-09-30T18:20:33.578Z"}
+{"level":"info","message":"Retrieved active activities successfully","timestamp":"2024-09-30T18:20:37.808Z"}
+{"level":"info","message":"Activity created successfully","name":"Another Activity","timestamp":"2024-09-30T18:23:50.040Z"}
+{"level":"info","message":"Activity with ID: 2 updated successfully","name":"Updated Another Activity","timestamp":"2024-09-30T18:23:54.791Z"}
+{"level":"info","message":"Activity with ID: 2 hidden successfully","timestamp":"2024-09-30T18:23:59.547Z"}
+{"level":"info","message":"Activity with ID: 2 unhidden successfully","timestamp":"2024-09-30T18:23:59.567Z"}
+{"level":"info","message":"Retrieved active activities successfully","timestamp":"2024-09-30T18:24:04.599Z"}

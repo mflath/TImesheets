@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/matthewflath/timesheet-app/logs/.037e16ed59fc2e0bf8a96a7d8b2c1148e0bb34bd-audit.json",
+    "files": [
+        {
+            "date": 1727850272584,
+            "name": "/Users/matthewflath/timesheet-app/logs/application-2024-10-02.log",
+            "hash": "81ba4dcc833743943becd53adc3fa0fc22f0b8b333c064ce691f1e699609c016"
+        },
+        {
+            "date": 1727964100193,
+            "name": "/Users/matthewflath/timesheet-app/logs/application-2024-10-03.log",
+            "hash": "b26cafb3d7e3bef370a9060e35a53590fd1792b30c2e194dd05af4aad6d1099f"
+        }
+    ],
+    "hashType": "sha256"
+}
