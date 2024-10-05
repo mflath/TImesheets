@@ -7,7 +7,7 @@ const authenticateJWT = require('../middleware'); // Import the JWT authenticati
 const jwt = require('jsonwebtoken'); // Import JWT for generating tokens
 
 // Secret key for JWT (should be stored in an environment variable in production)
-const JWT_SECRET = 'your_secret_key'; // Replace with a secure key
+const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key'; //test
 
 // User registration route
 router.post('/register', async (req, res) => {
@@ -23,6 +23,7 @@ router.post('/register', async (req, res) => {
         // Check if the username already exists
         const [existingUser] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
         if (existingUser.length > 0) {
+            logger.warn('Username already exists:', { username });
             return res.status(409).json({ message: 'Username already exists.' });
         }
 
@@ -222,13 +223,22 @@ router.put('/profile', authenticateJWT, async (req, res) => {
     const { phone_number, email, notification_preferences } = req.body;
     const username = req.user.username; // Extract the username from the JWT
 
+    // Log the extracted username
+    console.log('Extracted username:', username); 
+
     // Log the request details
     logger.info('Profile update request received', { username, phone_number, email, notification_preferences });
 
     try {
+        // Log the SQL query and parameters
+        logger.info('Executing query to update profile', {
+            sql: 'UPDATE users SET phone_number = ?, email = ?, notification_preferences = ? WHERE username = ?',
+            parameters: [phone_number, email || null, JSON.stringify(notification_preferences || {}), username]
+        });
+
         const [result] = await db.query(
             'UPDATE users SET phone_number = ?, email = ?, notification_preferences = ? WHERE username = ?',
-            [phone_number, email, JSON.stringify(notification_preferences), username]
+            [phone_number, email || null, JSON.stringify(notification_preferences || {}), username]
         );
 
         if (result.affectedRows > 0) {
@@ -240,9 +250,14 @@ router.put('/profile', authenticateJWT, async (req, res) => {
         }
     } catch (error) {
         logger.error('Error updating user profile:', error);
+        console.error('Error updating user profile:', error); // Print to console
         res.status(500).json({ message: 'Error updating user' });
     }
 });
+
+
+
+
 
 // Toggle Two-Factor Authentication route
 router.put('/two-factor', authenticateJWT, async (req, res) => { // Ensure the user is authenticated
@@ -294,6 +309,7 @@ router.get('/:id', async (req, res) => {
     try {
         const [result] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
         if (result.length > 0) {
+            logger.info('User details retrieved successfully:', { id });
             res.status(200).json(result[0]);
         } else {
             logger.warn('User not found for details:', { id });
@@ -319,5 +335,6 @@ router.get('/feedback', async (req, res) => {
 
 // Export the router
 module.exports = router;
+
 
 
